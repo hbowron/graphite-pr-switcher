@@ -2,8 +2,8 @@ SRC := ./extension
 DIST := ./dist
 ZIP := $(shell which zip)
 
-PACKAGE_NAME := nextcloud-video-calls-screensharing
-PACKAGE_VERSION := $(shell node -e "fs=require('fs');console.log(JSON.parse(fs.readFileSync(process.argv[1])).version)" ./extension/manifest.json)
+PACKAGE_NAME := graphite-pr-switcher
+PACKAGE_VERSION := $(shell jq -r '.version' < ./extension/manifest.json)
 
 build:
 	rm -rf $(DIST); \
