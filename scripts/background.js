@@ -42,17 +42,18 @@ async function openGraphiteTab( owner, repo, prNumber ) {
   });
 }
 
-// ?no-redirect required to stop Graphite extension from redirecting
+// ?no-redirect=1 required to stop Graphite extension from redirecting
 async function openGithubTab(owner, repo, prNumber) {
   chrome.tabs.create({
-    url: `https://github.com/${owner}/${repo}/pull/${prNumber}?no-redirect`,
+    url: `https://github.com/${owner}/${repo}/pull/${prNumber}?no-redirect=1`,
     active: true,
   });
 }
 
 async function getCurrentTab() {
-  let queryOptions = { active: true, lastFocusedWindow: true };
-  // `tab` will either be a `tabs.Tab` instance or `undefined`.
-  let [tab] = await chrome.tabs.query(queryOptions);
+  let [tab] = await chrome.tabs.query({
+    active: true,
+    lastFocusedWindow: true,
+  });
   return tab;
 }
