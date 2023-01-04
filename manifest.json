@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Graphite/Github PR Switcher",
+  "description": "For switching between Graphite and Github PRs",
+  "version": "1.0",
+  "action": {
+    "default_icon": "graphite.png"
+  },
+  "permissions": ["tabs", "activeTab"],
+  "background": {
+    "service_worker": "scripts/background.js"
+  },
+  "host_permissions": ["https://*/*"],
+  "commands": {
+    "toggle": {
+      "suggested_key": {
+        "mac": "Command+E"
+      },
+      "description": "Toggle between Graphite and Github PRs"
+    },
+    "_execute_action": {
+      "suggested_key": {
+        "mac": "Command+E"
+      }
+    }
+  }
+}
