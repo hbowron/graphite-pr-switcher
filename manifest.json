@@ -10,7 +10,6 @@
   "background": {
     "service_worker": "scripts/background.js"
   },
-  "host_permissions": ["https://*/*"],
   "commands": {
     "toggle": {
       "suggested_key": {
