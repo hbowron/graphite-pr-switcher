@@ -1,10 +1,11 @@
+// https://developer.chrome.com/docs/extensions/mv3/options/
+
 // Saves options to chrome.storage
 const saveOptions = () => {
-  const color = document.getElementById("color").value;
-  const likesColor = document.getElementById("like").checked;
+  const redirectChecked = document.getElementById("redirect").checked;
 
   chrome.storage.sync.set(
-    { favoriteColor: color, likesColor: likesColor },
+    { redirect: redirectChecked },
     () => {
       // Update status to let user know options were saved.
       const status = document.getElementById("status");
@@ -19,13 +20,9 @@ const saveOptions = () => {
 // Restores select box and checkbox state using the preferences
 // stored in chrome.storage.
 const restoreOptions = () => {
-  chrome.storage.sync.get(
-    { favoriteColor: "red", likesColor: true },
-    (items) => {
-      document.getElementById("color").value = items.favoriteColor;
-      document.getElementById("like").checked = items.likesColor;
-    }
-  );
+  chrome.storage.sync.get({ redirect: true }, (items) => {
+    document.getElementById("redirect").checked = items.redirect;
+  });
 };
 
 document.addEventListener("DOMContentLoaded", restoreOptions);
