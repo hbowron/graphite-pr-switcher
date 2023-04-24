@@ -9,7 +9,13 @@
     "48": "icon48.png",
     "128": "icon128.png"
   },
-  "permissions": ["tabs", "activeTab", "storage"],
+  "permissions": [
+    "tabs", 
+    "activeTab", 
+    "storage",
+    "webRequest",
+    "*://*.graphite.dev/"
+  ],
   "background": {
     "service_worker": "background.js"
   },
